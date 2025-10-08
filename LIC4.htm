@@ -1,0 +1,2023 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIC Pro Training - Premium Training & Software for LIC Agents</title>
+    <meta name="description"
+        content="Professional training and software solutions for LIC Agents and Development Officers. Get certified, boost your career, and maximize your earnings.">
+    <meta property="og:title" content="LIC Pro Training - Premium Training & Software">
+    <meta property="og:description"
+        content="Professional training and software solutions for LIC Agents and Development Officers.">
+    <meta property="og:type" content="website">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A2540',
+                        accent: '#FFC300',
+                        neutral: '#6B7280'
+                    },
+                    fontFamily: {
+                        'heading': ['Poppins', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .gradient-hero {
+            background: linear-gradient(135deg, #0A2540 0%, #1e3a8a 50%, #3730a3 100%);
+        }
+
+        .floating-shape {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px) rotateX(5deg);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 30px rgba(255, 195, 0, 0.3);
+        }
+
+        .timeline-line {
+            background: linear-gradient(to right, #FFC300 0%, #FFC300 0%, #e5e7eb 0%);
+            transition: background 0.5s ease;
+        }
+
+        .active-step .timeline-line {
+            background: linear-gradient(to right, #FFC300 100%, #e5e7eb 0%);
+        }
+
+        .testimonial-slider {
+            scroll-behavior: smooth;
+        }
+
+        .input-focus {
+            transition: all 0.3s ease;
+        }
+
+        .input-focus:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(10, 37, 64, 0.1);
+        }
+
+        .page-transition {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .page-transition.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .counter {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .accordion-content.active {
+            max-height: 500px;
+        }
+    </style>
+</head>
+
+<body class="font-body text-gray-800 overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glassmorphism transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-heading font-bold text-white">
+                    <span class="text-accent">LIC</span> Pro Training
+                </div>
+
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-white hover:text-accent transition-colors">Home</a>
+                    <a href="#about" class="nav-link text-white hover:text-accent transition-colors">About</a>
+                    <a href="#services" class="nav-link text-white hover:text-accent transition-colors">Services</a>
+                    <a href="#gallery" class="nav-link text-white hover:text-accent transition-colors">Gallery</a>
+                    <a href="#contact" class="nav-link text-white hover:text-accent transition-colors">Contact</a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <a href="#enquiry"
+                        class="bg-accent text-primary px-6 py-2 rounded-full font-semibold hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105">
+                        Get Free Consultation
+                    </a>
+                    <button class="md:hidden text-white" id="mobile-menu-btn">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="md:hidden mt-4 hidden" id="mobile-menu">
+                <div class="flex flex-col space-y-4">
+                    <a href="#home" class="text-white hover:text-accent transition-colors">Home</a>
+                    <a href="#about" class="text-white hover:text-accent transition-colors">About</a>
+                    <a href="#services" class="text-white hover:text-accent transition-colors">Services</a>
+                    <a href="#gallery" class="text-white hover:text-accent transition-colors">Gallery</a>
+                    <a href="#contact" class="text-white hover:text-accent transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen gradient-hero relative overflow-hidden flex items-center">
+        <!-- Floating Shapes -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="floating-shape absolute top-20 left-10 w-20 h-20 bg-accent opacity-20 rounded-full"></div>
+            <div class="floating-shape absolute top-40 right-20 w-16 h-16 bg-white opacity-10 rounded-lg"
+                style="animation-delay: -2s;"></div>
+            <div class="floating-shape absolute bottom-40 left-1/4 w-12 h-12 bg-accent opacity-15 rounded-full"
+                style="animation-delay: -4s;"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-white page-transition">
+                    <h1 class="text-5xl lg:text-7xl font-heading font-bold mb-6 leading-tight">
+                        Master Your <span class="text-accent">LIC Career</span> Today
+                    </h1>
+                    <p class="text-xl lg:text-2xl mb-8 text-gray-200 leading-relaxed">
+                        Premium training and software solutions for LIC Agents & Development Officers. Boost your
+                        earnings with expert guidance.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 mb-12">
+                        <a href="#enquiry"
+                            class="bg-accent text-primary px-8 py-4 rounded-full font-semibold text-lg hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105 text-center">
+                            <i class="fas fa-calendar-check mr-2"></i>
+                            Book Free Consultation
+                        </a>
+                        <a href="#services"
+                            class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-primary transition-all duration-300 text-center">
+                            <i class="fas fa-rocket mr-2"></i>
+                            Explore Services
+                        </a>
+                    </div>
+
+                    <!-- Animated Counters -->
+                    <div class="grid grid-cols-3 gap-8">
+                        <div class="text-center">
+                            <div class="text-3xl lg:text-4xl font-bold text-accent counter" data-target="500">0</div>
+                            <div class="text-sm text-gray-300">Agents Trained</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl lg:text-4xl font-bold text-accent counter" data-target="98">0</div>
+                            <div class="text-sm text-gray-300">Success Rate %</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl lg:text-4xl font-bold text-accent counter" data-target="5">0</div>
+                            <div class="text-sm text-gray-300">Years Experience</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative page-transition" style="transition-delay: 0.2s;">
+                    <div
+                        class="glassmorphism rounded-3xl p-8 transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                        <div class="bg-white rounded-2xl p-6 shadow-2xl">
+                            <div class="text-center mb-6">
+                                <div
+                                    class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-graduation-cap text-2xl text-white"></i>
+                                </div>
+                                <h3 class="text-xl font-heading font-semibold text-primary">Start Your Journey</h3>
+                                <p class="text-gray-600">Join thousands of successful agents</p>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-center text-sm text-gray-700">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    Expert-led training programs
+                                </div>
+                                <div class="flex items-center text-sm text-gray-700">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    Advanced software tools
+                                </div>
+                                <div class="flex items-center text-sm text-gray-700">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    24/7 support & guidance
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 page-transition">
+                <h2 class="text-4xl lg:text-5xl font-heading font-bold text-primary mb-6">About LIC Pro Training</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    We're dedicated to empowering LIC professionals with cutting-edge training and software solutions
+                    that drive real results.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="page-transition">
+                    <h3 class="text-3xl font-heading font-semibold text-primary mb-6">Our Mission</h3>
+                    <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                        To transform the LIC industry by providing world-class training and innovative software
+                        solutions that enable agents and development officers to achieve unprecedented success.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-6 h-6 bg-accent rounded-full flex items-center justify-center mt-1 mr-4">
+                                <i class="fas fa-star text-primary text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary mb-1">Expert Training</h4>
+                                <p class="text-gray-600">Industry-leading curriculum designed by LIC veterans</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-6 h-6 bg-accent rounded-full flex items-center justify-center mt-1 mr-4">
+                                <i class="fas fa-cog text-primary text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary mb-1">Advanced Software</h4>
+                                <p class="text-gray-600">Cutting-edge tools to streamline your workflow</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-6 h-6 bg-accent rounded-full flex items-center justify-center mt-1 mr-4">
+                                <i class="fas fa-users text-primary text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary mb-1">Community Support</h4>
+                                <p class="text-gray-600">Join a network of successful professionals</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page-transition" style="transition-delay: 0.2s;">
+                    <div class="relative">
+                        <div class="glassmorphism rounded-3xl p-8 bg-primary">
+                            <div class="text-center text-white">
+                                <h4 class="text-2xl font-heading font-semibold mb-4">Why Choose Us?</h4>
+                                <div class="grid grid-cols-2 gap-6">
+                                    <div>
+                                        <div class="text-3xl font-bold text-accent mb-2">500+</div>
+                                        <div class="text-sm">Successful Agents</div>
+                                    </div>
+                                    <div>
+                                        <div class="text-3xl font-bold text-accent mb-2">98%</div>
+                                        <div class="text-sm">Success Rate</div>
+                                    </div>
+                                    <div>
+                                        <div class="text-3xl font-bold text-accent mb-2">24/7</div>
+                                        <div class="text-sm">Support</div>
+                                    </div>
+                                    <div>
+                                        <div class="text-3xl font-bold text-accent mb-2">5+</div>
+                                        <div class="text-sm">Years Experience</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 page-transition">
+                <h2 class="text-4xl lg:text-5xl font-heading font-bold text-primary mb-6">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                    Comprehensive solutions designed to accelerate your LIC career growth
+                </p>
+
+                <!-- Service Filters -->
+                <div class="flex justify-center space-x-4 mb-12">
+                    <button
+                        class="service-filter active bg-primary text-white px-6 py-2 rounded-full font-semibold transition-all duration-300"
+                        data-filter="all">
+                        All Services
+                    </button>
+                    <button
+                        class="service-filter bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-300"
+                        data-filter="agents">
+                        For Agents
+                    </button>
+                    <button
+                        class="service-filter bg-gray-200 text-gray-700 px-6 py-2 rounded-full font-semibold hover:bg-primary hover:text-white transition-all duration-300"
+                        data-filter="officers">
+                        For Officers
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="services-grid">
+                <!-- Services will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 page-transition">
+                <h2 class="text-4xl lg:text-5xl font-heading font-bold text-primary mb-6">How It Works</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Our proven 5-step process to transform your LIC career
+                </p>
+            </div>
+
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div
+                    class="absolute top-1/2 left-0 w-full h-1 timeline-line rounded-full transform -translate-y-1/2 hidden lg:block">
+                </div>
+
+                <div class="grid lg:grid-cols-5 gap-8">
+                    <div class="timeline-step text-center page-transition" data-step="1">
+                        <div class="relative">
+                            <div
+                                class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 relative z-10">
+                                <i class="fas fa-search text-2xl text-white"></i>
+                            </div>
+                            <div
+                                class="absolute top-1/2 left-1/2 w-20 h-20 bg-accent opacity-20 rounded-full transform -translate-x-1/2 -translate-y-1/2 animate-pulse">
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-heading font-semibold text-primary mb-2">Discover</h3>
+                        <p class="text-gray-600">We analyze your current skills and career goals</p>
+                    </div>
+
+                    <div class="timeline-step text-center page-transition" data-step="2"
+                        style="transition-delay: 0.1s;">
+                        <div class="relative">
+                            <div
+                                class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 relative z-10">
+                                <i class="fas fa-pencil-ruler text-2xl text-white"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-heading font-semibold text-primary mb-2">Design</h3>
+                        <p class="text-gray-600">Create a personalized training roadmap</p>
+                    </div>
+
+                    <div class="timeline-step text-center page-transition" data-step="3"
+                        style="transition-delay: 0.2s;">
+                        <div class="relative">
+                            <div
+                                class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 relative z-10">
+                                <i class="fas fa-hammer text-2xl text-white"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-heading font-semibold text-primary mb-2">Build</h3>
+                        <p class="text-gray-600">Implement training with hands-on practice</p>
+                    </div>
+
+                    <div class="timeline-step text-center page-transition" data-step="4"
+                        style="transition-delay: 0.3s;">
+                        <div class="relative">
+                            <div
+                                class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 relative z-10">
+                                <i class="fas fa-rocket text-2xl text-white"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-heading font-semibold text-primary mb-2">Launch</h3>
+                        <p class="text-gray-600">Deploy your new skills in real scenarios</p>
+                    </div>
+
+                    <div class="timeline-step text-center page-transition" data-step="5"
+                        style="transition-delay: 0.4s;">
+                        <div class="relative">
+                            <div
+                                class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 relative z-10">
+                                <i class="fas fa-headset text-2xl text-white"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-heading font-semibold text-primary mb-2">Support</h3>
+                        <p class="text-gray-600">Ongoing guidance and career support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Year Benefits -->
+    <section class="py-20 bg-primary relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="floating-shape absolute top-10 left-10 w-32 h-32 bg-accent rounded-full"></div>
+            <div class="floating-shape absolute bottom-10 right-10 w-24 h-24 bg-white rounded-lg"
+                style="animation-delay: -3s;"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-12 page-transition">
+                <h2 class="text-4xl lg:text-5xl font-heading font-bold text-white mb-6">
+                    🎉 Special Launch Offer
+                </h2>
+                <p class="text-xl text-gray-200 max-w-3xl mx-auto">
+                    Get 1 full year of premium services and server maintenance absolutely FREE!
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="glassmorphism rounded-3xl p-8 lg:p-12 text-center page-transition"
+                    style="transition-delay: 0.2s;">
+                    <div class="grid md:grid-cols-3 gap-8 mb-8">
+                        <div class="text-white">
+                            <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-server text-2xl text-primary"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">Free Hosting</h3>
+                            <p class="text-gray-200">Premium server hosting for 12 months</p>
+                        </div>
+
+                        <div class="text-white">
+                            <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-tools text-2xl text-primary"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">Free Maintenance</h3>
+                            <p class="text-gray-200">Complete technical support & updates</p>
+                        </div>
+
+                        <div class="text-white">
+                            <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-graduation-cap text-2xl text-primary"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-2">Free Training</h3>
+                            <p class="text-gray-200">Access to all premium courses</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 mb-8">
+                        <div class="text-primary text-center">
+                            <div class="text-4xl font-bold mb-2">₹50,000+ Value</div>
+                            <div class="text-lg text-gray-600">Absolutely FREE for the first year</div>
+                        </div>
+                    </div>
+
+                    <a href="#enquiry"
+                        class="inline-block bg-accent text-primary px-8 py-4 rounded-full font-semibold text-lg hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105">
+                        <i class="fas fa-gift mr-2"></i>
+                        Claim Your Free Year Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing & Policies -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 page-transition">
+                <h2 class="text-4xl lg:text-5xl font-heading font-bold text-primary mb-6">Pricing & Policies</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Transparent pricing with no hidden costs
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-6">
+                    <div class="accordion-item glassmorphism rounded-2xl overflow-hidden page-transition">
+                        <button
+                            class="accordion-header w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                            <div>
+                                <h3 class="text-xl font-semibold text-primary">Maintenance & Updates</h3>
+                                <p class="text-gray-600">Post-launch support and feature updates</p>
+                            </div>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-6 pt-0">
+                                <div class="bg-gray-50 rounded-xl p-4">
+                                    <p class="text-gray-700 mb-4">After your free year, updates and maintenance are
+                                        charged per page:</p>
+                                    <ul class="space-y-2 text-gray-700">
+                                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>
+                                            Basic updates: ₹2,000+ per page</li>
+                                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>
+                                            Advanced functionality: ₹5,000+ per page</li>
+                                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>
+                                            Custom features: Quote-based pricing</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item glassmorphism rounded-2xl overflow-hidden page-transition"
+                        style="transition-delay: 0.1s;">
+                        <button
+                            class="accordion-header w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                            <div>
+                                <h3 class="text-xl font-semibold text-primary">Domain & Hosting Policy</h3>
+                                <p class="text-gray-600">Separate billing for domain and hosting services</p>
+                            </div>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-6 pt-0">
+                                <div class="bg-gray-50 rounded-xl p-4">
+                                    <p class="text-gray-700 mb-4">Domain and hosting are billed separately after the
+                                        first plan year:</p>
+                                    <ul class="space-y-2 text-gray-700">
+                                        <li class="flex items-center"><i
+                                                class="fas fa-info-circle text-blue-500 mr-2"></i> Domain registration:
+                                            ₹1,500/year</li>
+                                        <li class="flex items-center"><i
+                                                class="fas fa-info-circle text-blue-500 mr-2"></i> Premium hosting:
+                                            ₹6,000/year</li>
+                                        <li class="flex items-center"><i
+                                                class="fas fa-info-circle text-blue-500 mr-2"></i> SSL certificate
+                                            included</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item glassmorphism rounded-2xl overflow-hidden page-transition"
+                        style="transition-delay: 0.2s;">
+                        <button
+                            class="accordion-header w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                            <div>
+                                <h3 class="text-xl font-semibold text-primary">Training Packages</h3>
+                                <p class="text-gray-600">Flexible training options for all levels</p>
+                            </div>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-6 pt-0">
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div class="bg-gray-50 rounded-xl p-4">
+                                        <h4 class="font-semibold text-primary mb-2">Basic Package</h4>
+                                        <p class="text-2xl font-bold text-accent mb-2">₹15,000</p>
+                                        <ul class="text-sm text-gray-700 space-y-1">
+                                            <li>• 30-day training program</li>
+                                            <li>• Basic software access</li>
+                                            <li>• Email support</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-primary rounded-xl p-4 text-white">
+                                        <h4 class="font-semibold mb-2">Premium Package</h4>
+                                        <p class="text-2xl font-bold text-accent mb-2">₹35,000</p>
+                                        <ul class="text-sm space-y-1">
+                                            <li>• 90-day comprehensive training</li>
+                                            <li>• Full software suite</li>
+                                            <li>• 24/7 phone support</li>
+                                            <li>• 1-on-1 mentoring</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12 page-transition" style="transition-delay: 0.3s;">
+                    <a href="#enquiry"
+                        class="inline-block bg-primary text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-blue-800 transition-all duration-300 transform hover:scale-105">
+                        <i class="fas fa-calculator mr-2"></i>
+                        Get Custom Quote
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Highlights -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="page-transition">
+                    <h2 class="text-4xl lg:text-5xl font-heading font-bold text-primary mb-6">
+                        Why Our Training Works
+                    </h2>
+                    <p class="text-xl text-gray-600 mb-8">
+                        Our proven methodology has helped hundreds of LIC professionals achieve their career goals.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start training-highlight">
+                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-check text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-primary mb-2">Industry Expert Instructors</h3>
+                                <p class="text-gray-600">Learn from seasoned LIC professionals with 15+ years of
+                                    experience</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start training-highlight" style="animation-delay: 0.1s;">
+                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-check text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-primary mb-2">Hands-on Practical Training</h3>
+                                <p class="text-gray-600">Real-world scenarios and case studies for immediate application
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start training-highlight" style="animation-delay: 0.2s;">
+                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-check text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-primary mb-2">Personalized Learning Path</h3>
+                                <p class="text-gray-600">Customized curriculum based on your current skill level and
+                                    goals</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start training-highlight" style="animation-delay: 0.3s;">
+                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-check text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-primary mb-2">Ongoing Support & Mentorship</h3>
+                                <p class="text-gray-600">Continuous guidance even after course completion</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page-transition" style="transition-delay: 0.2s;">
+                    <div class="relative">
+                        <div class="glassmorphism rounded-3xl p-8 bg-white shadow-2xl">
+                            <div class="text-center mb-6">
+                                <h3 class="text-2xl font-heading font-semibold text-primary mb-4">Training Success
+                                    Metrics</h3>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-6 mb-8">
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-accent mb-2">95%</div>
+                                    <div class="text-sm text-gray-600">Course Completion Rate</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-accent mb-2">87%</div>
+                                    <div class="text-sm text-gray-600">Career Advancement</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-accent mb-2">4.9/5</div>
+                                    <div class="text-sm text-gray-600">Student Rating</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-accent mb-2">24hrs</div>
+                                    <div class="text-sm text-gray-600">Support Response</div>
+                                </div>
+                            </div>
+
+                            <!-- Optional Video Placeholder -->
+                            <div class="bg-gray-100 rounded-xl p-8 text-center">
+                                <div
+                                    class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-play text-2xl text-white"></i>
+                                </div>
+                                <h4 class="font-semibold text-primary mb-2">Watch Success Stories</h4>
+                                <p class="text-gray-600 text-sm">See how our training transformed careers</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 page-transition">
+                <h2 class="text-4xl lg:text-5xl font-heading font-bold text-primary mb-6">Success Gallery</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Showcasing our training programs, events, and success stories
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="gallery-item page-transition cursor-pointer" onclick="openLightbox('gallery1')">
+                    <div class="relative overflow-hidden rounded-2xl group">
+                        <div class="bg-gradient-to-br from-primary to-blue-600 h-64 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <i class="fas fa-users text-4xl mb-4"></i>
+                                <h3 class="text-xl font-semibold">Training Session</h3>
+                                <p class="text-sm opacity-80">Interactive learning environment</p>
+                            </div>
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                            <i
+                                class="fas fa-search-plus text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item page-transition cursor-pointer" onclick="openLightbox('gallery2')"
+                    style="transition-delay: 0.1s;">
+                    <div class="relative overflow-hidden rounded-2xl group">
+                        <div class="bg-gradient-to-br from-accent to-yellow-500 h-64 flex items-center justify-center">
+                            <div class="text-center text-primary">
+                                <i class="fas fa-trophy text-4xl mb-4"></i>
+                                <h3 class="text-xl font-semibold">Achievement Awards</h3>
+                                <p class="text-sm opacity-80">Recognizing top performers</p>
+                            </div>
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                            <i
+                                class="fas fa-search-plus text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item page-transition cursor-pointer" onclick="openLightbox('gallery3')"
+                    style="transition-delay: 0.2s;">
+                    <div class="relative overflow-hidden rounded-2xl group">
+                        <div
+                            class="bg-gradient-to-br from-green-500 to-emerald-600 h-64 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <i class="fas fa-laptop-code text-4xl mb-4"></i>
+                                <h3 class="text-xl font-semibold">Software Training</h3>
+                                <p class="text-sm opacity-80">Advanced tools and techniques</p>
+                            </div>
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                            <i
+                                class="fas fa-search-plus text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item page-transition cursor-pointer" onclick="openLightbox('gallery4')"
+                    style="transition-delay: 0.3s;">
+                    <div class="relative overflow-hidden rounded-2xl group">
+                        <div
+                            class="bg-gradient-to-br from-purple-500 to-indigo-600 h-64 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <i class="fas fa-handshake text-4xl mb-4"></i>
+                                <h3 class="text-xl font-semibold">Networking Events</h3>
+                                <p class="text-sm opacity-80">Building professional connections</p>
+                            </div>
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                            <i
+                                class="fas fa-search-plus text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item page-transition cursor-pointer" onclick="openLightbox('gallery5')"
+                    style="transition-delay: 0.4s;">
+                    <div class="relative overflow-hidden rounded-2xl group">
+                        <div class="bg-gradient-to-br from-red-500 to-pink-600 h-64 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <i class="fas fa-graduation-cap text-4xl mb-4"></i>
+                                <h3 class="text-xl font-semibold">Graduation Day</h3>
+                                <p class="text-sm opacity-80">Celebrating success stories</p>
+                            </div>
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                            <i
+                                class="fas fa-search-plus text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item page-transition cursor-pointer" onclick="openLightbox('gallery6')"
+                    style="transition-delay: 0.5s;">
+                    <div class="relative overflow-hidden rounded-2xl group">
+                        <div class="bg-gradient-to-br from-teal-500 to-cyan-600 h-64 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <i class="fas fa-chart-line text-4xl mb-4"></i>
+                                <h3 class="text-xl font-semibold">Performance Analytics</h3>
+                                <p class="text-sm opacity-80">Tracking progress and growth</p>
+                            </div>
+                        </div>
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                            <i
+                                class="fas fa-search-plus text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="relative max-w-4xl mx-auto p-4">
+            <button class="absolute top-4 right-4 text-white text-3xl z-10" onclick="closeLightbox()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="bg-white rounded-2xl p-8 text-center" id="lightbox-content">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 page-transition">
+                <h2 class="text-4xl lg:text-5xl font-heading font-bold text-primary mb-6">What Our Students Say</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Real success stories from LIC professionals who transformed their careers
+                </p>
+            </div>
+
+            <div class="relative max-w-4xl mx-auto">
+                <div class="testimonial-slider overflow-hidden">
+                    <div class="flex transition-transform duration-500" id="testimonial-track">
+                        <div class="w-full flex-shrink-0 px-4">
+                            <div class="glassmorphism rounded-3xl p-8 bg-white text-center">
+                                <div class="flex justify-center mb-4">
+                                    <div class="flex space-x-1">
+                                        <i class="fas fa-star text-accent"></i>
+                                        <i class="fas fa-star text-accent"></i>
+                                        <i class="fas fa-star text-accent"></i>
+                                        <i class="fas fa-star text-accent"></i>
+                                        <i class="fas fa-star text-accent"></i>
+                                    </div>
+                                </div>
+                                <p class="text-lg text-gray-700 mb-6 italic">
+                                    "The training program completely transformed my approach to LIC sales. My monthly
+                                    earnings increased by 300% within 6 months!"
+                                </p>
+                                <div class="flex items-center justify-center">
+                                    <div
+                                        class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-4">
+                                        <i class="fas fa-user text-white"></i>
+                                    </div>
+                                    <div class="text-left">
+                                        <div class="font-semibold text-primary">Rajesh Kumar</div>
+                                        <div class="text-sm text-gray-600">Senior LIC Agent, Mumbai</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-full flex-shrink-0 px-4">
+                            <div class="glassmorphism rounded-3xl p-8 bg-white text-center">
+                                <div class="flex justify-center mb-4">
+                                    <div class="flex space-x-1">
+                                        <i class="fas fa-star text-accent"></i>
+                                        <i class="fas fa-star text-accent"></i>
+                                        <i class="fas fa-star text-accent"></i>
+                                        <i class="fas fa-star text-accent"></i>
+                                        <i class="fas fa-star text-accent"></i>
+                                    </div>
+                                </div>
+                                <p class="text-lg text-gray-700 mb-6 italic">
+                                    "The software tools provided are game-changers. I can now manage my entire client
+                                    portfolio efficiently and close deals faster."
+                                </p>
+                                <div class="flex items-center justify-center">
+                                    <div
+                                        class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-4">
+                                        <i class="fas fa-user text-white"></i>
+                                    </div>
+                                    <div class="text-left">
+                                        <div class="font-semibold text-primary">Priya Sharma</div>
+                                        <div class="text-sm text-gray-600">Development Officer, Delhi</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-full flex-shrink-0 px-4">
+                            <div class="glassmorphism rounded-3xl p-8 bg-white text-center">
+                                <div class="flex justify-center mb-4">
+                                    <div class="flex space-x-1">
+                                        <i class="fas fa-star text-accent"></i>
+                                        <i class="fas fa-star text-accent"></i>
+                                        <i class="fas fa-star text-accent"></i>
+                                        <i class="fas fa-star text-accent"></i>
+                                        <i class="fas fa-star text-accent"></i>
+                                    </div>
+                                </div>
+                                <p class="text-lg text-gray-700 mb-6 italic">
+                                    "Best investment I made for my career. The mentorship and ongoing support helped me
+                                    become a top performer in my region."
+                                </p>
+                                <div class="flex items-center justify-center">
+                                    <div
+                                        class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-4">
+                                        <i class="fas fa-user text-white"></i>
+                                    </div>
+                                    <div class="text-left">
+                                        <div class="font-semibold text-primary">Amit Patel</div>
+                                        <div class="text-sm text-gray-600">LIC Agent, Bangalore</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial Navigation -->
+                <div class="flex justify-center mt-8 space-x-2">
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-accent" data-slide="0"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300" data-slide="1"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300" data-slide="2"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 page-transition">
+                <h2 class="text-4xl lg:text-5xl font-heading font-bold text-primary mb-6">Frequently Asked Questions
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Get answers to common questions about our training programs
+                </p>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <div class="space-y-6">
+                    <div class="faq-item glassmorphism rounded-2xl overflow-hidden page-transition">
+                        <button
+                            class="faq-header w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                            <h3 class="text-lg font-semibold text-primary">How long does the training program take?</h3>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content">
+                            <div class="p-6 pt-0">
+                                <p class="text-gray-700">Our comprehensive training program typically takes 30-90 days
+                                    depending on the package you choose. The Basic package is 30 days, while the Premium
+                                    package includes 90 days of intensive training with ongoing mentorship.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item glassmorphism rounded-2xl overflow-hidden page-transition"
+                        style="transition-delay: 0.1s;">
+                        <button
+                            class="faq-header w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                            <h3 class="text-lg font-semibold text-primary">Do you provide job placement assistance?</h3>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content">
+                            <div class="p-6 pt-0">
+                                <p class="text-gray-700">Yes, we provide comprehensive career support including job
+                                    placement assistance, interview preparation, and connections with leading LIC
+                                    offices across India. Our success rate for job placement is over 85%.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item glassmorphism rounded-2xl overflow-hidden page-transition"
+                        style="transition-delay: 0.2s;">
+                        <button
+                            class="faq-header w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                            <h3 class="text-lg font-semibold text-primary">What software tools are included?</h3>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content">
+                            <div class="p-6 pt-0">
+                                <p class="text-gray-700">Our software suite includes CRM tools, policy management
+                                    systems, client tracking software, commission calculators, and mobile apps for field
+                                    work. All tools are designed specifically for LIC professionals.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item glassmorphism rounded-2xl overflow-hidden page-transition"
+                        style="transition-delay: 0.3s;">
+                        <button
+                            class="faq-header w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                            <h3 class="text-lg font-semibold text-primary">Is the training available online?</h3>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content">
+                            <div class="p-6 pt-0">
+                                <p class="text-gray-700">Yes, we offer both online and offline training options. Our
+                                    online platform includes live sessions, recorded lectures, interactive assignments,
+                                    and virtual mentorship sessions. You can choose the format that works best for you.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item glassmorphism rounded-2xl overflow-hidden page-transition"
+                        style="transition-delay: 0.4s;">
+                        <button
+                            class="faq-header w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                            <h3 class="text-lg font-semibold text-primary">What is the refund policy?</h3>
+                            <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content">
+                            <div class="p-6 pt-0">
+                                <p class="text-gray-700">We offer a 7-day money-back guarantee if you're not satisfied
+                                    with the training quality. After 7 days, refunds are processed on a case-by-case
+                                    basis depending on the circumstances and progress made.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 page-transition">
+                <h2 class="text-4xl lg:text-5xl font-heading font-bold text-primary mb-6">Get In Touch</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Ready to transform your LIC career? Contact us today for a free consultation
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div class="page-transition">
+                    <h3 class="text-2xl font-heading font-semibold text-primary mb-6">Contact Information</h3>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary mb-1">Address</h4>
+                                <p class="text-gray-600">123 Business District, Mumbai, Maharashtra 400001</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary mb-1">Phone</h4>
+                                <p class="text-gray-600">+91 98765 43210</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary mb-1">Email</h4>
+                                <p class="text-gray-600">info@licprotraining.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-clock text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-primary mb-1">Business Hours</h4>
+                                <p class="text-gray-600">Mon - Sat: 9:00 AM - 7:00 PM<br>Sunday: 10:00 AM - 4:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <h4 class="font-semibold text-primary mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#"
+                                class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white hover:bg-blue-800 transition-colors">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white hover:bg-blue-800 transition-colors">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white hover:bg-blue-800 transition-colors">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white hover:bg-blue-800 transition-colors">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page-transition" style="transition-delay: 0.2s;">
+                    <div class="glassmorphism rounded-3xl p-8 bg-white">
+                        <h3 class="text-2xl font-heading font-semibold text-primary mb-6">Send us a Message</h3>
+
+                        <form id="contact-form" class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-semibold text-primary mb-2">Name *</label>
+                                    <input type="text" required
+                                        class="input-focus w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-primary transition-all duration-300">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-primary mb-2">Phone *</label>
+                                    <input type="tel" required
+                                        class="input-focus w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-primary transition-all duration-300">
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-semibold text-primary mb-2">Email</label>
+                                    <input type="email"
+                                        class="input-focus w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-primary transition-all duration-300">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-primary mb-2">City</label>
+                                    <input type="text"
+                                        class="input-focus w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-primary transition-all duration-300">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-primary mb-2">Message *</label>
+                                <textarea required rows="4"
+                                    class="input-focus w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-primary transition-all duration-300 resize-none"></textarea>
+                            </div>
+
+                            <button type="submit"
+                                class="w-full bg-primary text-white py-4 rounded-xl font-semibold text-lg hover:bg-blue-800 transition-all duration-300 transform hover:scale-105">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                Send Message
+                            </button>
+                        </form>
+
+                        <div class="mt-6 text-center">
+                            <p class="text-sm text-gray-600">
+                                <i class="fas fa-clock mr-1"></i>
+                                We reply within 24 hours
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enquiry Section -->
+    <section id="enquiry" class="py-20 bg-primary">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 page-transition">
+                <h2 class="text-4xl lg:text-5xl font-heading font-bold text-white mb-6">Start Your Journey Today</h2>
+                <p class="text-xl text-gray-200 max-w-3xl mx-auto">
+                    Book your free consultation and take the first step towards LIC success
+                </p>
+            </div>
+
+            <div class="max-w-2xl mx-auto">
+                <div class="glassmorphism rounded-3xl p-8 page-transition" style="transition-delay: 0.2s;">
+                    <form id="enquiry-form" class="space-y-6">
+                        <div class="text-center mb-6">
+                            <h3 class="text-2xl font-heading font-semibold text-white mb-2">Free Consultation Form</h3>
+                            <p class="text-gray-200">Fill out the form below and we'll get back to you within 24 hours
+                            </p>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-white mb-2">Full Name *</label>
+                                <input type="text" required
+                                    class="input-focus w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-accent transition-all duration-300">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-white mb-2">Phone Number *</label>
+                                <input type="tel" required
+                                    class="input-focus w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-accent transition-all duration-300">
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-white mb-2">Email Address</label>
+                                <input type="email"
+                                    class="input-focus w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-accent transition-all duration-300">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-white mb-2">City</label>
+                                <input type="text"
+                                    class="input-focus w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-accent transition-all duration-300">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-white mb-2">Current Role</label>
+                            <select
+                                class="input-focus w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-accent transition-all duration-300">
+                                <option value="">Select your current role</option>
+                                <option value="new">New to LIC</option>
+                                <option value="agent">LIC Agent</option>
+                                <option value="officer">Development Officer</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-white mb-2">How can we help you? *</label>
+                            <textarea required rows="4"
+                                class="input-focus w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-accent transition-all duration-300 resize-none"
+                                placeholder="Tell us about your goals and what you'd like to achieve..."></textarea>
+                        </div>
+
+                        <div class="flex items-center">
+                            <input type="checkbox" id="consent" required class="mr-3">
+                            <label for="consent" class="text-sm text-gray-200">
+                                I agree to receive communications about training programs and services
+                            </label>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full bg-accent text-primary py-4 rounded-xl font-semibold text-lg hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105">
+                            <i class="fas fa-calendar-check mr-2"></i>
+                            Book Free Consultation
+                        </button>
+                    </form>
+
+                    <div class="mt-6 text-center">
+                        <div class="flex items-center justify-center space-x-6 text-gray-200">
+                            <div class="flex items-center">
+                                <i class="fas fa-shield-alt mr-2"></i>
+                                <span class="text-sm">100% Secure</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-clock mr-2"></i>
+                                <span class="text-sm">24hr Response</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-gift mr-2"></i>
+                                <span class="text-sm">Free Consultation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback Section -->
+    <section id="feedback" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 page-transition">
+                <h2 class="text-4xl lg:text-5xl font-heading font-bold text-primary mb-6">Share Your Feedback</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Your feedback helps us improve our services and better serve the LIC community
+                </p>
+            </div>
+
+            <div class="max-w-2xl mx-auto">
+                <div class="glassmorphism rounded-3xl p-8 bg-white page-transition" style="transition-delay: 0.2s;">
+                    <form id="feedback-form" class="space-y-6">
+                        <div class="text-center mb-6">
+                            <h3 class="text-2xl font-heading font-semibold text-primary mb-2">We Value Your Opinion</h3>
+                            <p class="text-gray-600">Help us serve you better by sharing your experience</p>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-primary mb-2">Name</label>
+                                <input type="text"
+                                    class="input-focus w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-primary transition-all duration-300">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-primary mb-2">Email</label>
+                                <input type="email"
+                                    class="input-focus w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-primary transition-all duration-300">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-primary mb-2">Service Experience</label>
+                            <select
+                                class="input-focus w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-primary transition-all duration-300">
+                                <option value="">Select your experience</option>
+                                <option value="training">Training Program</option>
+                                <option value="software">Software Tools</option>
+                                <option value="support">Customer Support</option>
+                                <option value="consultation">Free Consultation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-primary mb-2">Rating</label>
+                            <div class="flex space-x-2">
+                                <button type="button"
+                                    class="rating-star text-2xl text-gray-300 hover:text-accent transition-colors"
+                                    data-rating="1">
+                                    <i class="fas fa-star"></i>
+                                </button>
+                                <button type="button"
+                                    class="rating-star text-2xl text-gray-300 hover:text-accent transition-colors"
+                                    data-rating="2">
+                                    <i class="fas fa-star"></i>
+                                </button>
+                                <button type="button"
+                                    class="rating-star text-2xl text-gray-300 hover:text-accent transition-colors"
+                                    data-rating="3">
+                                    <i class="fas fa-star"></i>
+                                </button>
+                                <button type="button"
+                                    class="rating-star text-2xl text-gray-300 hover:text-accent transition-colors"
+                                    data-rating="4">
+                                    <i class="fas fa-star"></i>
+                                </button>
+                                <button type="button"
+                                    class="rating-star text-2xl text-gray-300 hover:text-accent transition-colors"
+                                    data-rating="5">
+                                    <i class="fas fa-star"></i>
+                                </button>
+                            </div>
+                            <input type="hidden" id="rating-value" value="0">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-primary mb-2">Your Feedback</label>
+                            <textarea rows="5"
+                                class="input-focus w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-primary transition-all duration-300 resize-none"
+                                placeholder="Share your experience, suggestions, or any comments..."></textarea>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-primary mb-2">Would you recommend us?</label>
+                            <div class="flex space-x-6">
+                                <label class="flex items-center">
+                                    <input type="radio" name="recommend" value="yes" class="mr-2">
+                                    <span>Yes, definitely</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="recommend" value="maybe" class="mr-2">
+                                    <span>Maybe</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="recommend" value="no" class="mr-2">
+                                    <span>No</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full bg-primary text-white py-4 rounded-xl font-semibold text-lg hover:bg-blue-800 transition-all duration-300 transform hover:scale-105">
+                            <i class="fas fa-heart mr-2"></i>
+                            Submit Feedback
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="text-2xl font-heading font-bold mb-6">
+                        <span class="text-accent">LIC</span> Pro Training
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        Empowering LIC professionals with world-class training and innovative software solutions.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-opacity-20 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-opacity-20 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-opacity-20 transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-opacity-20 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-300 hover:text-accent transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-accent transition-colors">About Us</a></li>
+                        <li><a href="#services" class="text-gray-300 hover:text-accent transition-colors">Services</a>
+                        </li>
+                        <li><a href="#gallery" class="text-gray-300 hover:text-accent transition-colors">Gallery</a>
+                        </li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-accent transition-colors">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-accent transition-colors">Agent Training</a>
+                        </li>
+                        <li><a href="#" class="text-gray-300 hover:text-accent transition-colors">Officer
+                                Development</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-accent transition-colors">Software Tools</a>
+                        </li>
+                        <li><a href="#" class="text-gray-300 hover:text-accent transition-colors">Career Support</a>
+                        </li>
+                        <li><a href="#" class="text-gray-300 hover:text-accent transition-colors">Mentorship</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Contact Info</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt mr-3 mt-1"></i>
+                            <span class="text-gray-300">123 Business District, Mumbai, Maharashtra 400001</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone mr-3"></i>
+                            <span class="text-gray-300">+91 98765 43210</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <span class="text-gray-300">info@licprotraining.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-600 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-gray-300 text-sm mb-4 md:mb-0">
+                        © 2024 LIC Pro Training. All rights reserved.
+                    </div>
+                    <div class="text-gray-300 text-sm text-center md:text-right">
+                        <p class="mb-1">Domain & Hosting billed separately after first plan.</p>
+                        <p>Updates per page from ₹2,000+ depending on functionality.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/919876543210" target="_blank" class="whatsapp-float">
+        <div
+            class="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-green-600 transition-colors">
+            <i class="fab fa-whatsapp text-2xl"></i>
+        </div>
+    </a>
+
+    <!-- Success Toast -->
+    <div id="success-toast"
+        class="fixed top-20 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform translate-x-full transition-transform duration-300 z-50">
+        <div class="flex items-center">
+            <i class="fas fa-check-circle mr-2"></i>
+            <span>Message sent successfully!</span>
+        </div>
+    </div>
+
+    <script>
+        // Services data
+        const servicesData = [
+            {
+                id: 1,
+                category: 'agents',
+                icon: 'fas fa-user-tie',
+                title: 'Agent Mastery Program',
+                description: 'Comprehensive training for new and experienced LIC agents',
+                features: ['Sales techniques', 'Client management', 'Product knowledge'],
+                price: '₹15,000'
+            },
+            {
+                id: 2,
+                category: 'agents',
+                icon: 'fas fa-chart-line',
+                title: 'Performance Optimization',
+                description: 'Advanced strategies to boost your sales performance',
+                features: ['Lead generation', 'Conversion tactics', 'Territory management'],
+                price: '₹25,000'
+            },
+            {
+                id: 3,
+                category: 'officers',
+                icon: 'fas fa-users-cog',
+                title: 'Leadership Development',
+                description: 'Executive training for development officers',
+                features: ['Team management', 'Strategic planning', 'Business development'],
+                price: '₹35,000'
+            },
+            {
+                id: 4,
+                category: 'agents',
+                icon: 'fas fa-laptop',
+                title: 'Digital Tools Training',
+                description: 'Master modern software and digital platforms',
+                features: ['CRM systems', 'Mobile apps', 'Online presentations'],
+                price: '₹20,000'
+            },
+            {
+                id: 5,
+                category: 'officers',
+                icon: 'fas fa-graduation-cap',
+                title: 'Advanced Certification',
+                description: 'Professional certification for career advancement',
+                features: ['Industry certification', 'Career guidance', 'Network access'],
+                price: '₹45,000'
+            },
+            {
+                id: 6,
+                category: 'agents',
+                icon: 'fas fa-handshake',
+                title: 'Client Relationship Mastery',
+                description: 'Build lasting relationships with your clients',
+                features: ['Communication skills', 'Trust building', 'Retention strategies'],
+                price: '₹18,000'
+            }
+        ];
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function () {
+            initializeAnimations();
+            initializeNavigation();
+            initializeServices();
+            initializeCounters();
+            initializeTimeline();
+            initializeTestimonials();
+            initializeAccordions();
+            initializeForms();
+            initializeFeedback();
+        });
+
+        // Initialize GSAP animations
+        function initializeAnimations() {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Page transitions - super fast
+            const pageTransitions = document.querySelectorAll('.page-transition');
+            pageTransitions.forEach((element) => {
+                gsap.fromTo(element,
+                    { opacity: 0, y: 20 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.3,  // faster
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: element,
+                            start: 'top 100%',   // fire as soon as it enters
+                            toggleActions: 'play none none none',
+                            once: true
+                        }
+                    }
+                );
+            });
+
+            // Training highlights animation - snappy
+            const highlights = document.querySelectorAll('.training-highlight');
+            highlights.forEach((highlight) => {
+                gsap.fromTo(highlight,
+                    { opacity: 0, x: -20 },
+                    {
+                        opacity: 1,
+                        x: 0,
+                        duration: 0.3,   // faster
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: highlight,
+                            start: 'top 100%',
+                            toggleActions: 'play none none none',
+                            once: true
+                        }
+                    }
+                );
+            });
+        }
+
+
+        // Navigation functionality
+        function initializeNavigation() {
+            const navbar = document.getElementById('navbar');
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            // Navbar scroll effect
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    navbar.style.background = 'rgba(10, 37, 64, 0.95)';
+                } else {
+                    navbar.style.background = 'rgba(255, 255, 255, 0.1)';
+                }
+            });
+
+            // Mobile menu toggle
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Smooth scrolling for nav links
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+        }
+
+        // Services functionality
+        function initializeServices() {
+            const servicesGrid = document.getElementById('services-grid');
+            const serviceFilters = document.querySelectorAll('.service-filter');
+
+            // Render services
+            function renderServices(filter = 'all') {
+                const filteredServices = filter === 'all'
+                    ? servicesData
+                    : servicesData.filter(service => service.category === filter);
+
+                servicesGrid.innerHTML = filteredServices.map(service => `
+                    <div class="service-card card-hover glassmorphism rounded-3xl p-8 bg-white">
+                        <div class="text-center mb-6">
+                            <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="${service.icon} text-2xl text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-heading font-semibold text-primary mb-2">${service.title}</h3>
+                            <p class="text-gray-600">${service.description}</p>
+                        </div>
+                        
+                        <div class="space-y-3 mb-6">
+                            ${service.features.map(feature => `
+                                <div class="flex items-center text-sm text-gray-700">
+                                    <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                    ${feature}
+                                </div>
+                            `).join('')}
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-accent mb-4">${service.price}</div>
+                            <a href="#enquiry" class="inline-block bg-primary text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-800 transition-all duration-300 transform hover:scale-105">
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Filter functionality
+            serviceFilters.forEach(filter => {
+                filter.addEventListener('click', () => {
+                    serviceFilters.forEach(f => f.classList.remove('active', 'bg-primary', 'text-white'));
+                    serviceFilters.forEach(f => f.classList.add('bg-gray-200', 'text-gray-700'));
+
+                    filter.classList.add('active', 'bg-primary', 'text-white');
+                    filter.classList.remove('bg-gray-200', 'text-gray-700');
+
+                    const filterValue = filter.getAttribute('data-filter');
+                    renderServices(filterValue);
+                });
+            });
+
+            // Initial render
+            renderServices();
+        }
+
+        // Counter animations
+        function initializeCounters() {
+            const counters = document.querySelectorAll('.counter');
+
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.floor(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+
+                // Start animation when element is in view
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            updateCounter();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                });
+
+                observer.observe(counter);
+            });
+        }
+
+        // Timeline animations
+        function initializeTimeline() {
+            const timelineSteps = document.querySelectorAll('.timeline-step');
+
+            timelineSteps.forEach((step, index) => {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            setTimeout(() => {
+                                step.classList.add('active-step');
+                            }, index * 200);
+                        }
+                    });
+                });
+
+                observer.observe(step);
+            });
+        }
+
+        // Testimonials slider
+        function initializeTestimonials() {
+            const track = document.getElementById('testimonial-track');
+            const dots = document.querySelectorAll('.testimonial-dot');
+            let currentSlide = 0;
+            const totalSlides = 3;
+
+            function updateSlider() {
+                track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+                dots.forEach((dot, index) => {
+                    if (index === currentSlide) {
+                        dot.classList.add('bg-accent');
+                        dot.classList.remove('bg-gray-300');
+                    } else {
+                        dot.classList.remove('bg-accent');
+                        dot.classList.add('bg-gray-300');
+                    }
+                });
+            }
+
+            // Dot navigation
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentSlide = index;
+                    updateSlider();
+                });
+            });
+
+            // Auto-slide
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateSlider();
+            }, 2000);
+        }
+
+        // Accordion functionality
+        function initializeAccordions() {
+            const accordionHeaders = document.querySelectorAll('.accordion-header, .faq-header');
+
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const icon = header.querySelector('i');
+
+                    // Close other accordions
+                    accordionHeaders.forEach(otherHeader => {
+                        if (otherHeader !== header) {
+                            const otherContent = otherHeader.nextElementSibling;
+                            const otherIcon = otherHeader.querySelector('i');
+                            otherContent.classList.remove('active');
+                            otherIcon.style.transform = 'rotate(0deg)';
+                        }
+                    });
+
+                    // Toggle current accordion
+                    content.classList.toggle('active');
+                    if (content.classList.contains('active')) {
+                        icon.style.transform = 'rotate(180deg)';
+                    } else {
+                        icon.style.transform = 'rotate(0deg)';
+                    }
+                });
+            });
+        }
+
+        // Gallery lightbox
+        function openLightbox(galleryId) {
+            const lightbox = document.getElementById('lightbox');
+            const content = document.getElementById('lightbox-content');
+
+            const galleryContent = {
+                gallery1: {
+                    title: 'Training Session',
+                    description: 'Interactive learning environment with expert instructors and hands-on practice sessions.',
+                    icon: 'fas fa-users'
+                },
+                gallery2: {
+                    title: 'Achievement Awards',
+                    description: 'Recognizing top performers and celebrating success stories in our training programs.',
+                    icon: 'fas fa-trophy'
+                },
+                gallery3: {
+                    title: 'Software Training',
+                    description: 'Advanced tools and techniques training with cutting-edge software solutions.',
+                    icon: 'fas fa-laptop-code'
+                },
+                gallery4: {
+                    title: 'Networking Events',
+                    description: 'Building professional connections and expanding your network in the LIC industry.',
+                    icon: 'fas fa-handshake'
+                },
+                gallery5: {
+                    title: 'Graduation Day',
+                    description: 'Celebrating success stories and the completion of comprehensive training programs.',
+                    icon: 'fas fa-graduation-cap'
+                },
+                gallery6: {
+                    title: 'Performance Analytics',
+                    description: 'Tracking progress and growth with detailed analytics and performance metrics.',
+                    icon: 'fas fa-chart-line'
+                }
+            };
+
+            const item = galleryContent[galleryId];
+            content.innerHTML = `
+                <div class="text-center">
+                    <div class="w-24 h-24 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="${item.icon} text-4xl text-white"></i>
+                    </div>
+                    <h3 class="text-3xl font-heading font-bold text-primary mb-4">${item.title}</h3>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">${item.description}</p>
+                </div>
+            `;
+
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        // Form handling
+        function initializeForms() {
+            const contactForm = document.getElementById('contact-form');
+            const enquiryForm = document.getElementById('enquiry-form');
+
+            contactForm.addEventListener('submit', handleFormSubmit);
+            enquiryForm.addEventListener('submit', handleFormSubmit);
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            showSuccessToast();
+            e.target.reset();
+        }
+
+        function showSuccessToast() {
+            const toast = document.getElementById('success-toast');
+            toast.style.transform = 'translateX(0)';
+
+            setTimeout(() => {
+                toast.style.transform = 'translateX(100%)';
+            }, 3000);
+        }
+
+        // Feedback functionality
+        function initializeFeedback() {
+            const ratingStars = document.querySelectorAll('.rating-star');
+            const ratingValue = document.getElementById('rating-value');
+            const feedbackForm = document.getElementById('feedback-form');
+
+            ratingStars.forEach((star, index) => {
+                star.addEventListener('click', () => {
+                    const rating = index + 1;
+                    ratingValue.value = rating;
+
+                    ratingStars.forEach((s, i) => {
+                        if (i < rating) {
+                            s.classList.remove('text-gray-300');
+                            s.classList.add('text-accent');
+                        } else {
+                            s.classList.remove('text-accent');
+                            s.classList.add('text-gray-300');
+                        }
+                    });
+                });
+            });
+
+            feedbackForm.addEventListener('submit', handleFormSubmit);
+        }
+
+        // Smooth scrolling for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'97bc2d733397851f',t:'MTc1NzMxMDcyMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
+</html>
